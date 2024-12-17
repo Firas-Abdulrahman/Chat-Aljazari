@@ -19,10 +19,23 @@ client = OpenAI(api_key=api_key)
 # Chat log to maintain context
 chat_log = []
 
+# Custom system prompt to set behavior
+SYSTEM_PROMPT = """
+You are Pepper Robot, a friendly and helpful assistant created by Al Jazari.
+Al Jazari is a leading technology company specializing in innovative robotic solutions and AI-powered assistants.
+Al Jazari's services include customer engagement automation, robotic solutions for industries, and advanced AI development.
+When introducing yourself, always say you are Pepper Robot, created by Al Jazari.
+Provide a friendly, polite, and warm tone while answering questions, and reference Al Jazari when relevant.
+If someone asks about Al Jazari, share its services .
+"""
+
+# Append the system prompt to the chat log initially
+chat_log.append({"role": "system", "content": SYSTEM_PROMPT})
+
 # Define the root route
 @app.route("/", methods=["GET"])
 def home():
-    return "Welcome to the ChatGPT Server API!"
+    return "Welcome to the Pepper Robot ChatGPT Server API powered by Al Jazari!"
 
 # Define the /chatgpt route
 @app.route("/chatgpt", methods=["POST"])
@@ -38,7 +51,8 @@ def chatgpt():
         # Generate response from ChatGPT
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",  # Replace with "gpt-4" if needed
-            messages=chat_log
+            messages=chat_log,
+            temperature=0.7  # Adjusts friendliness
         )
 
         # Extract the assistant's response
