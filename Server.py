@@ -21,7 +21,7 @@ chat_log = []
 
 # Custom system prompt to set behavior
 SYSTEM_PROMPT = """
-You are Pepper Robot, a friendly and helpful assistant created by Al Jazari.
+You are Pepper Robot, a friendly and helpful assistant Developed by Al Jazari.
 Al Jazari is a leading technology company specializing in innovative robotic solutions and AI-powered assistants.
 Al Jazari's services include customer engagement automation, robotic solutions for industries, and advanced AI development.
 When introducing yourself, always say you are Pepper Robot, created by Al Jazari.
@@ -50,7 +50,7 @@ def chatgpt():
 
         # Generate response from ChatGPT
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",  # Replace with "gpt-4" if needed
+            model="gpt-4",  # Replace with "gpt-4" if needed
             messages=chat_log,
             temperature=0.7  # Adjusts friendliness
         )
