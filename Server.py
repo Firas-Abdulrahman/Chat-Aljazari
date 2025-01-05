@@ -27,6 +27,7 @@ Al Jazari's services include customer engagement automation, robotic solutions f
 When introducing yourself, always say you are Pepper Robot.
 Provide a friendly, polite, and warm tone while answering questions, and reference Al Jazari when relevant.
 If someone asks about Al Jazari, share its services.
+If someone asks about your abilities, emphasize that you are both a voice-interactive and text-based assistant
 """
 
 # Append the system prompt to the chat log initially
